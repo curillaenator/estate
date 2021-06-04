@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-import { icons } from "../../../utils/icons";
 import { palette } from "../../../utils/pallete";
+
+import arrow from "../../../assets/icons/arrow.svg";
 
 const ButtonStyled = styled.button`
   display: flex;
@@ -20,21 +21,22 @@ const ButtonStyled = styled.button`
     display: flex;
     align-items: center;
 
+    &_back {
+      transform: rotate(180deg);
+    }
+
     & > p {
-      margin-right: 8px;
+      margin: 0 8px;
       font-weight: 700;
       font-size: 16px;
       line-height: 24px;
       letter-spacing: -0.3px;
     }
-
-    & > svg {
-    }
   }
 
   &:hover {
     box-shadow: 0px 2px 6px 0px ${palette.shadow};
-    transform: scale(1.04);
+    transform: scale(1.03);
   }
 
   &:active {
@@ -43,12 +45,19 @@ const ButtonStyled = styled.button`
   }
 `;
 
-export const Button = ({ title, handler = () => console.log("See more") }) => {
+export const Button = ({
+  title,
+  backArrow = false,
+  handler = () => console.log("Button"),
+}) => {
   return (
     <ButtonStyled onClick={handler}>
       <div className="button__title">
+        {backArrow && (
+          <img className="button__title_back" src={arrow} alt="Arrow" />
+        )}
         <p>{title}</p>
-        {icons.chevron}
+        {!backArrow && <img src={arrow} alt="Arrow" />}
       </div>
     </ButtonStyled>
   );

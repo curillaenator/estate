@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 
 import { palette } from "../../../utils/pallete";
@@ -53,9 +53,8 @@ const SearchStyled = styled.form`
   }
 `;
 
-export const Search = ({ filterEstateList }) => {
-  const [search, setSeach] = useState("");
-  const handleInput = (e) => setSeach(e.target.value);
+export const Search = ({ search, setSearch, filterEstateList }) => {
+  const handleInput = (e) => setSearch(e.target.value);
 
   useEffect(() => filterEstateList(search), [search, filterEstateList]);
 

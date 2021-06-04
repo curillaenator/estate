@@ -2,7 +2,12 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-import { getEstateList, filterEstateList } from "../../redux/app/app";
+import {
+  setSearch,
+  getEstateList,
+  filterEstateList,
+  setSelected,
+} from "../../redux/app/app";
 
 import { Loader } from "../components/loader/Loader";
 import { Header } from "../components/header/Header";
@@ -19,16 +24,34 @@ const MainPageStyled = styled.div`
   }
 `;
 
-const MainPage = ({ listFiltered, getEstateList, filterEstateList }) => {
-  useEffect(() => getEstateList(), [getEstateList]);
+const MainPage = ({
+  list,
+  listFiltered,
+  selected,
+  search,
+  setSearch,
+  getEstateList,
+  filterEstateList,
+  setSelected,
+}) => {
+  useEffect(() => {
+    !list && getEstateList();
+    selected && setSelected(null);
+  }, [list, getEstateList]);
 
   if (!listFiltered) return <Loader />;
 
   return (
     <MainPageStyled>
       <Header title="Our Latest Developments" />
-      <Search filterEstateList={filterEstateList} />
-      <List listFiltered={listFiltered} />
+
+      <Search
+        search={search}
+        setSearch={setSearch}
+        filterEstateList={filterEstateList}
+      />
+
+      <List listFiltered={listFiltered} setSelected={setSelected} />
 
       <div className="buttons">
         <Button title="See more" />
@@ -38,9 +61,15 @@ const MainPage = ({ listFiltered, getEstateList, filterEstateList }) => {
 };
 
 const mstp = (state) => ({
+  search: state.app.search,
+  selected: state.app.selected,
+  list: state.app.list,
   listFiltered: state.app.listFiltered,
 });
 
-export const MainPageCont = connect(mstp, { getEstateList, filterEstateList })(
-  MainPage
-);
+export const MainPageCont = connect(mstp, {
+  setSearch,
+  getEstateList,
+  filterEstateList,
+  setSelected,
+})(MainPage);
