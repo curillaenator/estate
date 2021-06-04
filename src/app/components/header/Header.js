@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { palette } from "../../../pallete";
+import { palette } from "../../../utils/pallete";
 
 const HeaderStyled = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ const HeaderStyled = styled.div`
   align-items: center;
   margin: 36px 0 43px;
 
-  .header_title {
+  .header__title {
     font-weight: 700;
     font-size: 36px;
     line-height: 49px;
@@ -20,7 +20,7 @@ const HeaderStyled = styled.div`
 export const Header = ({ title }) => {
   return (
     <HeaderStyled>
-      <div className="header_title">{title}</div>
+      <h1 className="header__title">{title}</h1>
     </HeaderStyled>
   );
 };

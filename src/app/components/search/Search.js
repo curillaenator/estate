@@ -1,9 +1,9 @@
-import { Form, Field } from "react-final-form";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 
-import { palette } from "../../../pallete";
+import { palette } from "../../../utils/pallete";
 
-const FormStyled = styled.div`
+const SearchStyled = styled.form`
   display: flex;
   align-items: center;
   margin-bottom: 45px;
@@ -16,37 +16,59 @@ const FormStyled = styled.div`
     letter-spacing: -0.3px;
   }
 
-  .search_input {
-    width: 40%;
-    min-width: 418px;
+  .search__input {
+    width: 100%;
     height: 50px;
     padding: 0 25px;
     border: 1px solid ${palette.border};
     border-radius: 25px;
     transition: 0.12s linear;
     outline: none;
+    font-weight: 700;
+    font-size: 16px;
+    color: ${palette.fontBlack};
+    letter-spacing: -0.3px;
+
+    &::placeholder {
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: -0.3px;
+      color: ${palette.border};
+      transition: 0.08s linear;
+    }
+
+    &:focus::placeholder {
+      opacity: 0;
+    }
 
     &:focus {
-      border: 1px solid ${palette.labelOrange};
+      border: 1px solid ${palette.orange};
+    }
+  }
+
+  @media (min-width: 768px) {
+    .search__input {
+      width: 418px;
     }
   }
 `;
 
-export const Search = () => {
-  const onSubmit = (seacrhData) => console.log(seacrhData);
+export const Search = ({ filterEstateList }) => {
+  const [search, setSeach] = useState("");
+  const handleInput = (e) => setSeach(e.target.value);
+
+  useEffect(() => filterEstateList(search), [search, filterEstateList]);
 
   return (
-    <Form
-      onSubmit={onSubmit}
-      render={({ handleSubmit, form, values }) => {
-        // console.log(values);
-        return (
-          <FormStyled onSubmit={handleSubmit}>
-            <div className="search_title">Filter</div>
-            <Field name="search" component="input" className="search_input" />
-          </FormStyled>
-        );
-      }}
-    />
+    <SearchStyled>
+      <div className="search_title">Filter</div>
+      <input
+        className="search__input"
+        type="text"
+        value={search}
+        onChange={handleInput}
+        placeholder="...type at least 3 symbols"
+      />
+    </SearchStyled>
   );
 };

@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import est from "../../../assets/images/estate.jpg";
-import { palette } from "../../../pallete";
+import { palette } from "../../../utils/pallete";
 
 const CardStyled = styled(Link)`
+  position: relative;
   width: 100%;
   margin-bottom: 38px;
   text-decoration: none;
   border: 1px solid ${palette.border};
   background-color: ${palette.bgCard};
   color: ${palette.fontBlack};
+  transition: 0.12s ease-in-out;
 
   .card__image {
     position: relative;
@@ -77,19 +78,43 @@ const CardStyled = styled(Link)`
     }
   }
 
+  &:hover {
+    box-shadow: 0px 2px 16px 0px ${palette.shadow};
+    transform: scale(1.01);
+  }
+
+  &:active {
+    box-shadow: none;
+    transform: scale(1);
+    opacity: 0.85;
+  }
+
   @media (min-width: 768px) {
     width: calc(100% / 2 - 22px / 2);
+    margin-right: 22px;
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
   }
 
   @media (min-width: 1024px) {
     width: calc(100% / 3 - 44px / 3);
+
+    &:nth-child(2n) {
+      margin-right: 22px;
+    }
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
   }
 `;
 
 const ListStyled = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  margin-bottom: 22px;
 `;
 
 const ListCard = ({ estate }) => {
@@ -106,14 +131,19 @@ const ListCard = ({ estate }) => {
   return (
     <CardStyled to={`/details/${estate.id}`} labelbg={labelBGs[estate.type]}>
       <div className="card__image">
-        <img className="card__image_img" src={est} alt="" />
+        <img
+          className="card__image_img"
+          src={`https://via.placeholder.com/600x300/363636/FFFFFF?text=${estate.title}`}
+          alt={estate.title}
+          draggable={false}
+        />
         <div className="card__image_label">{labelTxts[estate.type]}</div>
       </div>
 
       <div className="card__info">
-        <div className="card__info_title">{estate.title}</div>
-        <div className="card__info_address">{estate.address}</div>
-        <div className="card__info_price">
+        <h2 className="card__info_title">{estate.title}</h2>
+        <p className="card__info_address">{estate.address}</p>
+        <p className="card__info_price">
           <span>New Properties for Sale from </span>
           <span style={{ fontWeight: "700" }}>
             {estate.price.toLocaleString("en-GB", {
@@ -122,17 +152,17 @@ const ListCard = ({ estate }) => {
               maximumSignificantDigits: 6,
             })}
           </span>
-        </div>
-        <div className="card__info_options">Shared Ownership Available</div>
+        </p>
+        <p className="card__info_options">Shared Ownership Available</p>
       </div>
     </CardStyled>
   );
 };
 
-export const List = ({ estateList }) => {
+export const List = ({ listFiltered }) => {
   return (
     <ListStyled>
-      {estateList.map((estate) => (
+      {listFiltered.map((estate) => (
         <ListCard key={estate.id} estate={estate} />
       ))}
     </ListStyled>

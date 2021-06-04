@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import loader from "../../../assets/icons/loader.svg";
 
-import { palette } from "../../../pallete";
+import { palette } from "../../../utils/pallete";
 
 const LoaderStyled = styled.div`
   display: flex;
