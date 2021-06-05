@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/fuse/static/css/main.df8facc1.chunk.css",
-    "main.js": "/fuse/static/js/main.6f19cef3.chunk.js",
-    "main.js.map": "/fuse/static/js/main.6f19cef3.chunk.js.map",
-    "runtime-main.js": "/fuse/static/js/runtime-main.bb11d26b.js",
-    "runtime-main.js.map": "/fuse/static/js/runtime-main.bb11d26b.js.map",
-    "static/js/2.812be05f.chunk.js": "/fuse/static/js/2.812be05f.chunk.js",
-    "static/js/2.812be05f.chunk.js.map": "/fuse/static/js/2.812be05f.chunk.js.map",
+    "main.js": "/fuse/static/js/main.d1877db8.chunk.js",
+    "main.js.map": "/fuse/static/js/main.d1877db8.chunk.js.map",
+    "runtime-main.js": "/fuse/static/js/runtime-main.79ff7da6.js",
+    "runtime-main.js.map": "/fuse/static/js/runtime-main.79ff7da6.js.map",
+    "static/js/2.c800aeb6.chunk.js": "/fuse/static/js/2.c800aeb6.chunk.js",
+    "static/js/2.c800aeb6.chunk.js.map": "/fuse/static/js/2.c800aeb6.chunk.js.map",
     "index.html": "/fuse/index.html",
     "static/css/main.df8facc1.chunk.css.map": "/fuse/static/css/main.df8facc1.chunk.css.map",
-    "static/js/2.812be05f.chunk.js.LICENSE.txt": "/fuse/static/js/2.812be05f.chunk.js.LICENSE.txt",
+    "static/js/2.c800aeb6.chunk.js.LICENSE.txt": "/fuse/static/js/2.c800aeb6.chunk.js.LICENSE.txt",
     "static/media/arrow.97a27ab1.svg": "/fuse/static/media/arrow.97a27ab1.svg",
     "static/media/loader.8193f7d9.svg": "/fuse/static/media/loader.8193f7d9.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.bb11d26b.js",
-    "static/js/2.812be05f.chunk.js",
+    "static/js/runtime-main.79ff7da6.js",
+    "static/js/2.c800aeb6.chunk.js",
     "static/css/main.df8facc1.chunk.css",
-    "static/js/main.6f19cef3.chunk.js"
+    "static/js/main.d1877db8.chunk.js"
   ]
 }
