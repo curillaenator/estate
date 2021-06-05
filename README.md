@@ -1,6 +1,6 @@
 # Houses & Estate
 
-Watch app - https://curillaenator.github.io/fuse8/
+Watch app - https://curillaenator.github.io/fuse/
 
 ...or run this app localy:
 
