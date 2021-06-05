@@ -1,10 +1,14 @@
 # Houses & Estate
 
-To run this app localy go to the project directory and do:
+Watch app - https://curillaenator.github.io/fuse8/
+
+...or run this app localy:
+
+In the project directory do
 
 ### `npm install`
 
-then:
+then
 
 ### `npm start`
 
