@@ -37,7 +37,7 @@ const MainPage = ({
   useEffect(() => {
     !list && getEstateList();
     selected && setSelected(null);
-  }, [list, getEstateList]);
+  }, [list, selected, getEstateList, setSelected]);
 
   if (!listFiltered) return <Loader />;
 
@@ -51,7 +51,7 @@ const MainPage = ({
         filterEstateList={filterEstateList}
       />
 
-      <List listFiltered={listFiltered} setSelected={setSelected} />
+      <List listFiltered={listFiltered} />
 
       <div className="buttons">
         <Button title="See more" />

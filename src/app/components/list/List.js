@@ -8,11 +8,11 @@ const ListStyled = styled.div`
   margin-bottom: 22px;
 `;
 
-export const List = ({ listFiltered, setSelected }) => {
+export const List = ({ listFiltered }) => {
   return (
     <ListStyled>
       {listFiltered.map((estate) => (
-        <ListCard key={estate.id} estate={estate} setSelected={setSelected} />
+        <ListCard key={estate.id} estate={estate} />
       ))}
     </ListStyled>
   );

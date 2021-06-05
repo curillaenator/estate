@@ -64,3 +64,10 @@ export const filterEstateList = (filt) => (dispatch, getState) => {
     return dispatch(setListFiltered(estates));
   }
 };
+
+export const getDetails = (id) => (dispatch, getState) => {
+  const estates = getState().app.list;
+  const selected = estates.find((est) => est.id === id);
+
+  dispatch(setSelected(selected));
+};
