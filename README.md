@@ -2,9 +2,9 @@
 
 Watch app - https://curillaenator.github.io/estate/
 
-...or run this app localy:
+...or run this app locally:
 
-In the project directory do
+in the project directory do
 
 ### `npm install`
 
